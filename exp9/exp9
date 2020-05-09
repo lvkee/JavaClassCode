@@ -1,0 +1,107 @@
+
+一、实验目的
+    1、认识程序的逻辑运行错误
+    2、学习java一语言的异常处理机制
+    3、认识Java的常见异常类
+    4、学习java语言的多异常处理
+    5、学习在异常中抛出异常
+    6、学习捕获并处理由方法抛出的异常
+    7、学习定义自己的异常类，学习在程序中使用throw语句抛出异常
+
+
+二、实验要求
+
+
+    1、编写一个程序，这个程序能处理除零异常。
+public  class DivideZero
+{
+    public static void main（String [] args）
+    {
+        int x=0;
+        int y=0;
+        y=3/x;
+        System.out.println("程序结束");
+    }
+}
+
+2、程序填空
+public  class ManyException
+{
+    public static void main（String[]  args）
+    {
+        int i；
+        int  []a={1,2,3,4}
+        for{i=0;i<5;i++}
+        {
+            try
+            {
+                System.out.print("a["+i+"]/"+i+"="+(a[i]/i));
+            }
+            catch(代码1)
+            {
+                System.out.print("捕获到了数组下标越界异常");
+            }
+            catch(代码2)  //捕获算术异常
+            {
+                System.out.print("异常类名称是："+e);
+            }
+            catch(代码3)  //捕获异常
+            {
+                System.out.print("捕获"+e.getMessage()+"异常！");
+            }
+            finally
+            {
+                System.out.print("finally  i="+i);
+            }
+        }
+         System.out.println("继续")；
+     }
+}
+3、
+
+class  MethodException
+{
+    static void m()  [代码1]//方法m抛出Exception
+    {
+        int  a=3;
+        int b=0
+        int  c=a/b;
+        System.out.println(a+"/"+b+"="+c);
+    }
+    public static void  main(String [] args)
+    {
+        [代码2]   //调用方法m（）,捕获产生的异常，显示异常信息
+        System.out.println("程序结束");
+    }
+}
+
+
+4、编写一个程序，在程序中定义两个异常类，在main（）函数中使用throw语句抛出异常。
+    [代码1]//定义一个类AaaException，继承于Exception
+    [代码2]//定义一个类BbbException，继承于Exception
+class  ThrowException
+{
+    public static void main(Sting [] args)
+    {
+        int  x=1;
+        try
+        {
+            if(x>0)
+                [代码3]//抛出一个AaaException实例
+            else
+                [代码4]//抛出一个BbbException实例
+        }
+        catch(AaaException  e) 
+        {
+            System.out.print("捕获到了Aaa异常");
+        }
+        catch(BbbException  e) 
+        {
+            System.out.print("捕获到了Bbb异常");
+        }
+    }
+}
+
+
+
+5、编写一个程序，在main方法中，输入语句，根据不同的错误捕获相应的异常。（NullPointerException、ClassCastException、NegativeArraySizeException、ArrayIndexOutofBoundsException）
