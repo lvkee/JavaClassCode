@@ -9,11 +9,11 @@ import java.util.Set;
  *
  * @author ChrisLiu
  */
+
+
 public class Demo01 {
-    /**
-     * 该方法用来计算该字符串中重复单词的个数
-     */
-    static void countRepeatWords(String[] str) {
+    //该方法用来计算该字符串中重复单词的个数
+    /*static void countRepeatWords(String[] str) {
         for (int i = 0; i < str.length - 1; i++) {
             int count = 1;
             String word = null;
@@ -29,7 +29,27 @@ public class Demo01 {
                 System.out.println(word + "出现了" + count + "次");
             }
         }
+    }*/
+
+    static void countRepeatWords(String[] str) {
+        for (int i = 0; i < str.length; i++) {
+            int count = 0;
+            String word = null;
+            for (int j = 0; j < str.length; j++) {
+                if (str[i].equals(str[j])) {
+                    if (i > j) {
+                        break;
+                    }
+                    word = str[i];
+                    count++;
+                }
+            }
+            if (count > 1) {
+                System.out.println(word + "出现了" + count + "次");
+            }
+        }
     }
+
 
     public static void main(String[] args) {
         String s = new String("you can just do what you truly love to do");
